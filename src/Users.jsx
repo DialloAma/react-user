@@ -34,32 +34,35 @@ class Users extends Component {
     render() {
         return (
             <div>
-                <form style={{marginTop:"2rem"}} onSubmit={this.manageSubmit}>
+                <form style={{marginTop:"2rem",marginLeft:"10rem"}} onSubmit={this.manageSubmit}>
+                    <h1>Add Users</h1>
                     <div>
                         <label>Name : </label>
-                        <input type="text" id="name" value={this.state.name} onChange={this.managechange} placeholder="your name please" required/>
+                        <input style={{marginBottom:"5px"}} type="text" id="name" value={this.state.name} onChange={this.managechange} placeholder="your name please" required/>
                     </div>
                     <div>
                         <label>Email : </label>
-                        <input type="Email" id="email" value={this.state.email} onChange={this.managechange} placeholder="your name please" required/>
+                        <input style={{marginBottom:"5px"}}type="Email" id="email" value={this.state.email} onChange={this.managechange} placeholder="your name please" required/>
                     </div>
                     <div>
                         <label>phone : </label>
-                        <input type="number" id="phone" value={this.state.phone} onChange={this.managechange}  placeholder="your name please" required/>
+                        <input style={{marginBottom:"5px"}} type="number" id="phone" value={this.state.phone} onChange={this.managechange}  placeholder="your name please" required/>
                     </div>
                     <div>
                         <label>password : </label>
-                        <input type="password" id="password" value={this.state.password} onChange={this.managechange} placeholder="your name please" required/>
+                        <input style={{marginBottom:"5px"}} type="password" id="password" value={this.state.password} onChange={this.managechange} placeholder="your name please" required/>
                     </div>
                     <button>Submit</button>
                 </form>
                 { this.state.user.map((item,index)=>{
                 return(
-                    <div key={index}>
+                    <div key={index} style={{paddingLeft:"2rem"}}>
+                        <h1>List Users</h1>
                         <h2>Name:{item.name}</h2>
                         <h2>E-mail:{item.email}</h2>
                         <h2>Phone:{item.phone}</h2>
                         <h2>Password:{item.password}</h2>
+                        <hr/>
                     </div>
                 )
                 
