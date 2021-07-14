@@ -15,10 +15,26 @@ class Users extends Component {
             e.preventDefault()
             this.setState({[e.target.id]: e.target.value})
     }
+    manageSubmit=(e)=>{
+        e.preventDefault()
+        const newUser={
+            name:this.state.name,
+            email:this.state.email,
+            phone:this.state.phone,
+            password:this.state.password
+
+        }
+        this.setState({user:[...this.state.user,newUser],
+                name:"",
+                email:"",
+                phone:"",
+                password:"",
+        })
+    }
     render() {
         return (
             <div>
-                <form style={{marginTop:"2rem"}}>
+                <form style={{marginTop:"2rem"}} onSubmit={this.manageSubmit}>
                     <div>
                         <label>Name : </label>
                         <input type="text" id="name" value={this.state.name} onChange={this.managechange} placeholder="your name please" required/>
@@ -39,11 +55,11 @@ class Users extends Component {
                 </form>
                 { this.state.user.map((item,index)=>{
                 return(
-                    <div>
+                    <div key={index}>
                         <h2>Name:{item.name}</h2>
-                        <h2>Name:{item.email}</h2>
-                        <h2>Name:{item.phone}</h2>
-                        <h2>Name:{item.password}</h2>
+                        <h2>E-mail:{item.email}</h2>
+                        <h2>Phone:{item.phone}</h2>
+                        <h2>Password:{item.password}</h2>
                     </div>
                 )
                 
