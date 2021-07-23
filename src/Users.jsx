@@ -1,6 +1,7 @@
 import React from 'react';
-import { Table } from 'react-bootstrap'
+import { Table, button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaBeer,FaRegEdit } from 'react-icons/fa';
 const Users = ({ userdata }) => {
     return (
         <div>
@@ -25,7 +26,7 @@ const Users = ({ userdata }) => {
                                 <td>{use.phone}</td>
                                 <td>{use.email}</td>
                                 <td>{use.password}</td>
-                                <td></td>
+                                <td>  <FaRegEdit/>  <FaBeer style={{color:'red'}} /></td>
                             </tr>
                         )
                     })}
