@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button, Modal } from 'react-bootstrap'
+import { Table, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaBeer, FaRegEdit } from 'react-icons/fa';
 import EditUser from './EditUser';
