@@ -41,7 +41,7 @@ const Users = ({ userdata, userdelet, update }) => {
                                 <td>{user.phone}</td>
                                 <td>{user.email}</td>
                                 <td>{user.password}</td>
-                                <td>  <FaRegEdit onClick={handleShow} />  <FaBeer style={{ color: 'red', cursor: 'pointer' }} onClick={() => userdelet(user.id)} /></td>
+                                <td>  <FaRegEdit style={{cursor: 'pointer'}} onClick={handleShow} />  <FaBeer style={{ color: 'red', cursor: 'pointer' }} onClick={() => userdelet(user.id)} /></td>
                             </tr>
                         )
                     })}
