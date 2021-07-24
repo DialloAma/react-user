@@ -1,10 +1,17 @@
-import React from 'react';
-import { Table, button } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Table, Button, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaBeer,FaRegEdit } from 'react-icons/fa';
-const Users = ({ userdata }) => {
+import { FaBeer, FaRegEdit } from 'react-icons/fa';
+import EditUser from './EditUser';
+const Users = ({ userdata, userdelet, update }) => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div>
+
+
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -18,15 +25,23 @@ const Users = ({ userdata }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {userdata.map((use, idex) => {
-                        return (
-                            <tr>
+                    {userdata.map((user) => {
 
-                                <td>{use.name}</td>
-                                <td>{use.phone}</td>
-                                <td>{use.email}</td>
-                                <td>{use.password}</td>
-                                <td>  <FaRegEdit/>  <FaBeer style={{color:'red'}} /></td>
+                        return (
+                            <tr key={user.id}>
+                                <Modal show={show} onHide={handleClose} animation={false}>
+                                    
+                                    <Modal.Body>
+                                        <EditUser userdata={user} updateuse={update} closemodal={handleClose} />
+                                    </Modal.Body>
+
+                                </Modal>
+
+                                <td>{user.name}</td>
+                                <td>{user.phone}</td>
+                                <td>{user.email}</td>
+                                <td>{user.password}</td>
+                                <td>  <FaRegEdit onClick={handleShow} />  <FaBeer style={{ color: 'red', cursor: 'pointer' }} onClick={() => userdelet(user.id)} /></td>
                             </tr>
                         )
                     })}

@@ -1,14 +1,14 @@
-
 import React, { Component } from 'react';
-class AddUsers extends Component {
+
+class EditUser extends Component {
     constructor(props){
         super(props)
         this.state={
-           
-            name:"",
-            phone:"",
-            email:"",
-            password:""
+            id: props.userdata.id,
+            name: props.userdata.name,
+            phone:props.userdata.phone,
+            email:props.userdata.email,
+            password:props.userdata.password
         }
     }
     managechange=(e)=>{
@@ -18,13 +18,15 @@ class AddUsers extends Component {
     }
     managesubmit=(e)=>{
         e.preventDefault()
-       this.props.newUser(this.state)
+       this.props.updateuse(this.state.id ,this.state)
        this.setState({
+           
         name:"",
         phone:"",
         email:"",
         password:"" 
        })
+       this.props.closemodal()
     }
 
     render() {
@@ -32,7 +34,7 @@ class AddUsers extends Component {
             <div>
                
                 <form style={{marginTop:"2rem",marginLeft:"10rem"}} onSubmit={this.managesubmit} >
-                    <h1>Add Users</h1>
+                    <h1>Edit User</h1>
                     <div>
                         <label>Name : </label>
                         <input style={{marginBottom:"5px"}} type="text" id="name" value={this.state.name} onChange={this.managechange} placeholder="your name please" required/>
@@ -57,7 +59,4 @@ class AddUsers extends Component {
     }
 }
 
-export default AddUsers;
-
-
-
+export default EditUser;
