@@ -1,5 +1,7 @@
 
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {addUser} from './actions/userActions'
 class AddUsers extends Component {
     constructor(props){
         super(props)
@@ -56,8 +58,11 @@ class AddUsers extends Component {
         );
     }
 }
+const mapDispatchToProps={
+    newUser: addUser
+}
 
-export default AddUsers;
+export default connect(null,mapDispatchToProps)(AddUsers);
 
 
 

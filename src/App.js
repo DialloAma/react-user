@@ -5,7 +5,7 @@ import AddUsers from './AddUsers';
 import Users from './Users';
 
 class App extends Component {
-  constructor(props) {
+ /* constructor(props) {
     super(props)
     this.state = {
       users: []
@@ -16,7 +16,7 @@ class App extends Component {
     this.setState({
       users: [...this.state.users, user]
     })
-  }
+  }*/
   delletuser = (id) => {
     let sup = this.state.users.filter((user) => user.id !== id);
     this.setState({
@@ -31,9 +31,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AddUsers newUser={this.addinfo} />
+        <AddUsers />
         <hr />
-        <Users userdata={this.state.users} userdelet={this.delletuser} update={this.EditUser} />
+        <Users  userdelet={this.delletuser} update={this.EditUser} />
+        
 
 
 

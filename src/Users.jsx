@@ -3,7 +3,8 @@ import { Table, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaBeer, FaRegEdit } from 'react-icons/fa';
 import EditUser from './EditUser';
-const Users = ({ userdata, userdelet, update }) => {
+import {connect} from 'react-redux'
+const Users = ({userdata, userdelet, update }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -24,7 +25,8 @@ const Users = ({ userdata, userdelet, update }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {userdata.map((user) => {
+                    {
+                     userdata.map((user) => {
 
                         return (
                             <tr key={user.id}>
@@ -43,12 +45,21 @@ const Users = ({ userdata, userdelet, update }) => {
                                 <td>  <FaRegEdit style={{cursor: 'pointer'}} onClick={handleShow} />  <FaBeer style={{ color: 'red', cursor: 'pointer' }} onClick={() => userdelet(user.id)} /></td>
                             </tr>
                         )
-                    })}
+                     })
+                    }
 
                 </tbody>
             </Table>
         </div>
     );
 }
+const mapStateToProps=(state)=>{
+    return{
+        userdata: state.users
+        
+       
+         }
+    
+}
 
-export default Users;
+export default connect(mapStateToProps)(Users);
