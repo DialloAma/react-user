@@ -6,3 +6,10 @@ export const addUser=(newUsers)=>{
         payload: newUsers
     }
 }
+
+export const delletUser=(id)=>{
+    return{
+        type:"DELET_USER",
+        payload: id
+    }
+}

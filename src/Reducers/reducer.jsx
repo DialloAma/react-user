@@ -14,6 +14,10 @@ const reducer = (state={users:[]},action) => {
          return {
              ...state, users : [...state.users, action.payload]
          }
+         case 'DELET_USER':
+             return{
+                 ...state, users: state.users.filter((user) => user.id !== action.payload)
+             }
         default:
             return state
     }

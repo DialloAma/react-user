@@ -3,6 +3,7 @@ import { Table, Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaBeer, FaRegEdit } from 'react-icons/fa';
 import EditUser from './EditUser';
+import {delletUser} from './actions/userActions'
 import {connect} from 'react-redux'
 const Users = ({userdata, userdelet, update }) => {
     const [show, setShow] = useState(false);
@@ -61,5 +62,10 @@ const mapStateToProps=(state)=>{
          }
     
 }
+const mapDispatchToProps={
+    
+       userdelet:delletUser 
+    
+}
 
-export default connect(mapStateToProps)(Users);
+export default connect(mapStateToProps,mapDispatchToProps)(Users);
