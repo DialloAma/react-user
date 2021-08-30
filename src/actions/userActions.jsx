@@ -13,3 +13,10 @@ export const delletUser=(id)=>{
         payload: id
     }
 }
+
+export const updateUser=(updat)=>{
+    return{
+        type:"UPDATE_USER",
+        payload : updat
+    }
+}

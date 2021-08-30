@@ -23,17 +23,17 @@ class App extends Component {
       users: sup
     })
   }*/
-  EditUser = (id, updateuser) => {
+/*  EditUser = (id, updateuser) => {
     this.setState({ users:this.state.users.map((user) => user.id === id ? updateuser : user) })
 
 
-  }
+  }*/
   render() {
     return (
       <div>
         <AddUsers />
         <hr />
-        <Users   update={this.EditUser} />
+        <Users    />
         
 
 

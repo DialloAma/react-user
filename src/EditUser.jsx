@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {updateUser} from './actions/userActions'
+import {connect} from 'react-redux'
 
 class EditUser extends Component {
     constructor(props){
@@ -18,7 +20,7 @@ class EditUser extends Component {
     }
     managesubmit=(e)=>{
         e.preventDefault()
-       this.props.updateuse(this.state.id ,this.state)
+       this.props.updateuse(this.state)
        this.setState({
            
         name:"",
@@ -58,5 +60,8 @@ class EditUser extends Component {
         );
     }
 }
+const mapDispatchToProps={
+    updateuse: updateUser
+}
 
-export default EditUser;
+export default connect(null,mapDispatchToProps) (EditUser);

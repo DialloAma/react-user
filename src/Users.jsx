@@ -5,7 +5,7 @@ import { FaBeer, FaRegEdit } from 'react-icons/fa';
 import EditUser from './EditUser';
 import {delletUser} from './actions/userActions'
 import {connect} from 'react-redux'
-const Users = ({userdata, userdelet, update }) => {
+const Users = ({userdata, userdelet }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -16,7 +16,7 @@ const Users = ({userdata, userdelet, update }) => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-
+                    <th>ID</th>
                         <th>Name</th>
                         <th>Phone</th>
                         <th>E-mail</th>
@@ -34,11 +34,11 @@ const Users = ({userdata, userdelet, update }) => {
                                 <Modal show={show} onHide={handleClose} animation={false}>
                                     
                                     <Modal.Body>
-                                        <EditUser userdata={user} updateuse={update} closemodal={handleClose} />
+                                        <EditUser userdata={user}  closemodal={handleClose} />
                                     </Modal.Body>
 
                                 </Modal>
-
+                                <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.phone}</td>
                                 <td>{user.email}</td>
@@ -57,15 +57,11 @@ const Users = ({userdata, userdelet, update }) => {
 const mapStateToProps=(state)=>{
     return{
         userdata: state.users
-        
-       
-         }
+        }
     
 }
 const mapDispatchToProps={
-    
-       userdelet:delletUser 
-    
+    userdelet:delletUser 
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Users);
