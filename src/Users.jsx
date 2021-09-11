@@ -5,6 +5,8 @@ import { FaBeer, FaRegEdit } from 'react-icons/fa';
 import EditUser from './EditUser';
 import {delletUser} from './actions/userActions'
 import {connect} from 'react-redux'
+
+
 const Users = ({userdata, userdelet }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
