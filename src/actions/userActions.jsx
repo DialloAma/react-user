@@ -1,11 +1,12 @@
 export const addUser=(newUsers)=>{
     newUsers.id=Math.random()
-    return(dispatch,state,{getFirestore})=>{
+    return({getFirestore})=>{
         getFirestore().collection('users').add(newUsers).then((doc)=>{
             /*dispatch({
                 type:"ADD_USER",
                 payload: newUsers  
              }) */
+             console.log(doc)
         })
        
    }
