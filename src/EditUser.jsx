@@ -6,11 +6,11 @@ class EditUser extends Component {
     constructor(props){
         super(props)
         this.state={
-            id: props.userdata.id,
-            name: props.userdata.name,
-            phone:props.userdata.phone,
-            email:props.userdata.email,
-            password:props.userdata.password
+            id: props.user.id,
+            name: props.user.name,
+            phone:props.user.phone,
+            email:props.user.email,
+            password:props.user.password
         }
     }
     managechange=(e)=>{

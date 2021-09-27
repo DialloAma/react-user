@@ -1,11 +1,4 @@
-/*const user = {
-    users: [
-        {name:'BaH',
-    phone:'6254135',
-    email:'amadou@yahoo.fr',
-    password:'14563'}
-]
-}*/
+
 
 
 const reducer = (state={users:[]},action) => {
@@ -27,7 +20,11 @@ const reducer = (state={users:[]},action) => {
                     return user
                 })
                 
-            }     
+            } 
+        case 'ALL-USERS':
+            return{
+                ...state, users: action.payload
+            }    
         default:
             return state
     }

@@ -10,7 +10,12 @@ import {connect} from 'react-redux'
 const Users = ({userdata, userdelet }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [user,setUser] =useState()
+    const handleShow = (user) =>{
+        setShow(true);
+        setUser(user)
+
+    } 
     return (
         <div>
 
@@ -33,19 +38,13 @@ const Users = ({userdata, userdelet }) => {
 
                         return (
                             <tr key={user.id}>
-                                <Modal show={show} onHide={handleClose} animation={false}>
-                                    
-                                    <Modal.Body>
-                                        <EditUser userdata={user}  closemodal={handleClose} />
-                                    </Modal.Body>
-
-                                </Modal>
+                                
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.phone}</td>
                                 <td>{user.email}</td>
                                 <td>{user.password}</td>
-                                <td>  <FaRegEdit style={{cursor: 'pointer'}} onClick={handleShow} />  <FaBeer style={{ color: 'red', cursor: 'pointer' }} onClick={() => userdelet(user.id)} /></td>
+                                <td>  <FaRegEdit style={{cursor: 'pointer'}} onClick={()=>handleShow(user)} />  <FaBeer style={{ color: 'red', cursor: 'pointer' }} onClick={() => userdelet(user.id)} /></td>
                             </tr>
                         )
                      })
@@ -53,6 +52,13 @@ const Users = ({userdata, userdelet }) => {
 
                 </tbody>
             </Table>
+            <Modal show={show} onHide={handleClose} animation={false}>
+                                    
+                                    <Modal.Body>
+                                        <EditUser user={user}  closemodal={handleClose} />
+                                    </Modal.Body>
+
+                                </Modal>
         </div>
     );
 }

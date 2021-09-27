@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {addUser} from './actions/userActions'
+import {addUser,AllUsers} from './actions/userActions'
 class AddUsers extends Component {
     constructor(props){
         super(props)
@@ -27,6 +27,9 @@ class AddUsers extends Component {
         email:"",
         password:"" 
        })
+    }
+    componentDidMount(){
+        this.props.getUsers()
     }
 
     render() {
@@ -59,7 +62,8 @@ class AddUsers extends Component {
     }
 }
 const mapDispatchToProps={
-    newUser: addUser
+    newUser: addUser,
+    getUsers : AllUsers
 }
 
 export default connect(null,mapDispatchToProps)(AddUsers);
