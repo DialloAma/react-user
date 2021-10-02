@@ -3,7 +3,7 @@
 
 const reducer = (state={users:[]},action) => {
     switch(action.type){
-        case 'ADD_USER':
+      /*  case 'ADD_USER':
          return {
              ...state, users : [...state.users, action.payload]
          }
@@ -20,7 +20,7 @@ const reducer = (state={users:[]},action) => {
                     return user
                 })
                 
-            } 
+            } */
         case 'ALL-USERS':
             return{
                 ...state, users: action.payload
