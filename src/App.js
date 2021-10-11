@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddUsers from './AddUsers';
 import Users from './Users';
+import Navbar from "./NavBar"
+import Register from "./register"
 
 class App extends Component {
  /* constructor(props) {
@@ -31,9 +33,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AddUsers />
+
+        <Navbar/>
+        <Register/>
+      { /*<AddUsers />
         <hr />
-        <Users    />
+        <Users    />*/}
         
 
 

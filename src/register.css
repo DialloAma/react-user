@@ -1,0 +1,21 @@
+.forme{
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    border: 0.5rem solid black;
+    padding-bottom: 2rem;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+input{
+    margin-top: 1rem;
+    max-width: 30%;
+}
+button{
+    margin-top: 1rem;
+    width: 10rem;
+}
+label{
+    size: 5%;
+    font-size: medium;
+}

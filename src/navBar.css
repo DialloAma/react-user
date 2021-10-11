@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.Navbar{
+    display: flex;
+    background: blue;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    font-size: medium;
+    cursor: pointer;
+}
+.Nav-link{
+    list-style: none;
+    display: flex;
+   
+}
+.Nav-link > li{
+    padding: 1rem;
+    cursor: pointer;
+}
+.Nav-link > li:hover{
+    font-size: 1rem;
+}
+.log{
+    display: flex;
+}
+.log > div{
+    padding: 1rem;
+    cursor: pointer;
+}
